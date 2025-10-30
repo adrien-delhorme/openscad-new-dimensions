@@ -32,9 +32,9 @@ module FlatAngle(angle, radius=10, label_angle=0, label_offset=10, show_spokes=f
 
 module Angle(angle, radius=10, label_angle=0, label_offset=10, show_spokes=false, spokes_overflow=2) {
   color(DIMENSION_COLOR) {
-    if (DIMENSION_RENDER_MODE == RENDER_MODE_FLAT) {
+    if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_2D) {
       FlatAngle(angle, radius, label_angle, label_offset, show_spokes, spokes_overflow);
-    } else if (DIMENSION_RENDER_MODE == RENDER_MODE_3D) {
+    } else if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_3D) {
       linear_extrude(height=DIMENSION_HEIGHT) {
         FlatAngle(angle, radius, label_angle, label_offset, show_spokes, spokes_overflow);
       }
@@ -58,9 +58,9 @@ module AngleOverview(angle, height, label="", zoom=2, max_width=20) {
   }
 
   color(DIMENSION_COLOR) {
-    if (DIMENSION_RENDER_MODE == RENDER_MODE_FLAT) {
+    if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_2D) {
       FlatAngleOverview();
-    } else if (DIMENSION_RENDER_MODE == RENDER_MODE_3D) {
+    } else if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_3D) {
       linear_extrude(height=DIMENSION_HEIGHT) {
         FlatAngleOverview();
       }

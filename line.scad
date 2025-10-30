@@ -178,9 +178,9 @@ module Dimension(length, line_width=DIMENSION_LINE_WIDTH, loc=DIMENSION_CENTER) 
   }
 
   color(DIMENSION_COLOR) {
-    if (DIMENSION_RENDER_MODE == RENDER_MODE_FLAT) {
+    if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_2D) {
       FlatDimension();
-    } else if (DIMENSION_RENDER_MODE == RENDER_MODE_3D) {
+    } else if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_3D) {
       linear_extrude(height=DIMENSION_HEIGHT) {
         FlatDimension();
       }

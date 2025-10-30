@@ -3,7 +3,7 @@ include <openscad-new-dimensions/dimensions.scad>;
 
 /* [Parameters] */
 // Choose the rendering mode
-DIMENSION_RENDER_MODE = "3D"; // [3D, Flat]
+DIMENSION_RENDER_MODE = "3D"; // [3D, 2D]
 
 // Choose the color
 DIMENSION_COLOR = "white"; // [white, black, red, green, blue, yellow, purple, orange, brown, gray, pink, lime, teal, cyan, magenta]
@@ -51,7 +51,7 @@ translate([200, 0, 0]) {
 
 /* Labels */
 module LabelExample() {
-  if (DIMENSION_RENDER_MODE == RENDER_MODE_FLAT) {
+  if (DIMENSION_RENDER_MODE == RENDER_MODE_2D) {
     difference() {
       square([100, 100]);
       Label(bbox=[100, 100]);

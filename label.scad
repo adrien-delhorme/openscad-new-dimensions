@@ -2,7 +2,7 @@ module Text(string, halign="left", valign="center", height) {
   height = is_undef(height) ? DIMENSION_HEIGHT : height;
 
   color(DIMENSION_COLOR) {
-    if (DIMENSION_RENDER_MODE == RENDER_MODE_FLAT) {
+    if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_2D) {
       text(string, halign=halign, valign=valign);
     } else {
       linear_extrude(height=height) {
