@@ -12,7 +12,7 @@ module Arc(angle, radius) {
     }
 }
 
-module FlatAngle(angle, radius=10, label_angle=0, label_offset=10, show_spokes=false, spokes_overflow=2) {
+module renderAngle2D(angle, radius=10, label_angle=0, label_offset=10, show_spokes=false, spokes_overflow=2) {
   Arc(angle, radius);
 
   // Spokes
@@ -33,17 +33,17 @@ module FlatAngle(angle, radius=10, label_angle=0, label_offset=10, show_spokes=f
 module Angle(angle, radius=10, label_angle=0, label_offset=10, show_spokes=false, spokes_overflow=2) {
   color(DIMENSION_COLOR) {
     if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_2D) {
-      FlatAngle(angle, radius, label_angle, label_offset, show_spokes, spokes_overflow);
+      renderAngle2D(angle, radius, label_angle, label_offset, show_spokes, spokes_overflow);
     } else if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_3D) {
       linear_extrude(height=DIMENSION_HEIGHT) {
-        FlatAngle(angle, radius, label_angle, label_offset, show_spokes, spokes_overflow);
+        renderAngle2D(angle, radius, label_angle, label_offset, show_spokes, spokes_overflow);
       }
     }
   }
 }
 
 module AngleOverview(angle, height, label="", zoom=2, max_width=20) {
-  module FlatAngleOverview() {
+  module renderAngleOverview2D(angle, height, label="", zoom=2, max_width=20) {
     y = height / tan(angle);
 
     // Shape
@@ -54,15 +54,15 @@ module AngleOverview(angle, height, label="", zoom=2, max_width=20) {
 
     // Angle label
     rotate([0, 0, angle])
-      FlatAngle(90 - angle, radius=20 * zoom, show_spokes=true);
+      renderAngle2D(90 - angle, radius=30 * zoom, show_spokes=true);
   }
 
   color(DIMENSION_COLOR) {
     if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_2D) {
-      FlatAngleOverview();
+      renderAngleOverview2D(angle, height, label, zoom, max_width);
     } else if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_3D) {
       linear_extrude(height=DIMENSION_HEIGHT) {
-        FlatAngleOverview();
+        renderAngleOverview2D(angle, height, label, zoom, max_width);
       }
     }
   }

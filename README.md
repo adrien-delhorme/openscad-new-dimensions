@@ -97,5 +97,5 @@ Font size for dimensions.
 **DIMENSION_COLOR** (default: `black`)<br>
 Color of the dimensions.
 
-**DIMENSION_RENDER_MODE** (default: `RENDER_MODE_2D`)<br>
-Rendering mode of dimensions. Can be `RENDER_MODE_2D` or `RENDER_MODE_3D`.
+**DIMENSION_RENDER_MODE** (default: `DIMENSION_RENDER_MODE_2D`)<br>
+Rendering mode of dimensions. Can be `DIMENSION_RENDER_MODE_2D` or `DIMENSION_RENDER_MODE_3D`.

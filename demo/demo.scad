@@ -51,7 +51,7 @@ translate([200, 0, 0]) {
 
 /* Labels */
 module LabelExample() {
-  if (DIMENSION_RENDER_MODE == RENDER_MODE_2D) {
+  if (DIMENSION_RENDER_MODE == DIMENSION_RENDER_MODE_2D) {
     difference() {
       square([100, 100]);
       Label(bbox=[100, 100]);
